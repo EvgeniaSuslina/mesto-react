@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Logo from '../images/Logo.svg';
+import logo from "../images/Logo.svg";
 
-function Header(){
-
-    return(
-        <header className="header">
-        <img className="header__logo" src={Logo} alt="Место" />
-      </header>
-    )
+function Header() {
+  return (
+    <header className="header">
+      <img className="header__logo" src={logo} alt="Место" />
+    </header>
+  );
 }
 
 export default Header;
