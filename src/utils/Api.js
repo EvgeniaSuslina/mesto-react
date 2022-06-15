@@ -30,13 +30,13 @@ class Api {
       .then(this._checkResult);
     }
 
-    editUserInfo(newName, newDescription){
+    editUserInfo(name, description){
       return fetch(`${this._url}/users/me`,{
         method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify({
-          name: newName,
-          about: newDescription
+          name: name,
+          about: description
         })
       })
       .then(this._checkResult);
@@ -80,12 +80,20 @@ class Api {
       .then(this._checkResult);
     }
 
-    editUserAvatar(setAvatar){
+    changeLikeCardStatus(data, isLiked) {
+      return fetch(`${this._url}cards/${data._id}/likes`,{
+        method: isLiked ? "PUT" : "DELETE",
+        headers: this._headers,
+      })
+      .then(this._checkResult);
+    }
+
+    editUserAvatar(link){
       return fetch(`${this._url}/users/me/avatar`, {
         method: 'PATCH', 
         headers: this._headers,
         body: JSON.stringify({
-          avatar: setAvatar
+          avatar: link
         })
       })
       .then(this._checkResult);
