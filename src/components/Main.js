@@ -38,10 +38,8 @@ function Main({
           onClick={onAddPlace}
         ></button>
       </section>
-
       <section className="group">
-        <ul className="group__elements">
-          <CurrentUserContext.Provider value={currentUser}>
+        <ul className="group__elements">          
             {cards.map((card) => (
               <Card
                 key={card._id}
@@ -50,8 +48,7 @@ function Main({
                 onCardLike={onCardLike}
                 onCardDelete={onCardDelete}
               />
-            ))}
-          </CurrentUserContext.Provider>
+            ))}          
         </ul>
       </section>
     </main>
